@@ -27,14 +27,14 @@ import { useSignInWallet } from "@/hooks/useSignInWallet";
 import GenerateInviteBtn from "@/components/GenerateInvite";
 import { pathConstants } from "@/utils/routeNames";
 import Header from "@/components/Header";
-import userGetRewardsSummary from "@/hooks/userGetRewardsSummary";
+import useGetRewardsSummary from "@/hooks/useGetRewardsSummary";
 
 const Summary: React.FC<RouteComponentProps> = (routerProps) => {
   //TODO: change parent tag to IonPage
 
   const { myGroups, loading, reload } = useGetMyGroups();
   const { user } = useSignInWallet();
-  const { summary, loading: loadingSummary } = userGetRewardsSummary();
+  const { summary, loading: loadingSummary } = useGetRewardsSummary();
   const router = useIonRouter();
 
   const loadingAllData = !myGroups && loading && loadingSummary;
